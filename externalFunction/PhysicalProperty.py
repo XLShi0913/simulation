@@ -25,3 +25,9 @@ def searchPByDH(D, h):
     # D: kg/m^3, h: J/kg, p: Pa
     sig1 = RP.DHFL1dll(D / info.wmm, h * info.wmm / 1000, [1.0])
     return RP.PRESSdll(sig1.T, D / info.wmm, [1.0]) * 1000
+
+
+def searchDBYPT(P, T):
+    # D: kg/m^3, p: Pa, T: K
+    sig1 = RP.TPFLSHdll(T, P / 1000, [1.0])
+    return sig1.Dv * info.wmm
